@@ -1,21 +1,22 @@
 import React, { Component } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  Label
-} from "recharts";
 
-import { getCO2Emissionsdata } from "../data/CO2Emission";
-import { getGlobalTempdata } from "../data/GlobalTemp";
-import { getGlacierSizedata } from "../data/GlacierSize";
-import { getSeaLeveldata } from "../data/SeaLevel";
+//us the following 4 "imports" if you want to load data from json files
+//import { getCO2Emissionsdata } from "../data/CO2Emission";
+//import { getGlobalTempdata } from "../data/GlobalTemp";
+//import { getGlacierSizedata } from "../data/GlacierSize";
+//import { getSeaLeveldata } from "../data/SeaLevel";
+import CO2Emission from "./CO2Emission";
+import Temperature from "./Temperature";
+import GlacierSize from "./GlacierSize";
+import SeaLevel from "./SeaLevel";
+import CO2List from "./CO2List";
+import CO2PieChart from "./CO2PieChart";
+import NavBar from "./NavBar";
+import NotFound from "./NotFound";
+import GlacierSizeSeaLevel from "./GlacierSizeSeaLevel";
 
-export default class AllCharts extends Component {
+import { Route, Redirect, Switch } from "react-router-dom";
+export default class AllCharts2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,15 +28,14 @@ export default class AllCharts extends Component {
   }
 
   async componentDidMount() {
-    /*
     const CO2url = "https://my.api.mockaroo.com/co2.json?key=8eb9e6f0";
     const CO2response = await fetch(CO2url);
     const CO2data = await CO2response.json();
 
     const GlobalTempurl = "https://my.api.mockaroo.com/temp.json?key=8eb9e6f0";
     const GlobalTempresponse = await fetch(GlobalTempurl);
-    const GlobalTempdata = await GlobalTempresponse.json();
-    GlobalTempdata.sort((a, b) =>
+    let GlobalTempdata = await GlobalTempresponse.json();
+    GlobalTempdata = GlobalTempdata.sort((a, b) =>
       a.Year > b.Year ? 1 : b.Year > a.Year ? -1 : 0
     );
 
@@ -48,7 +48,17 @@ export default class AllCharts extends Component {
       "https://my.api.mockaroo.com/sealevel.json?key=8eb9e6f0";
     const SearLevelresponse = await fetch(SearLevelurl);
     const SearLeveldata = await SearLevelresponse.json();
-*/
+
+    //use the following code block when you want to load data from API
+    this.setState({
+      CO2Emission: CO2data,
+      GlobalTemp: GlobalTempdata,
+      GlacierSize: GlacierSizedata,
+      SeaLevel: SearLeveldata
+    });
+
+    //use the following code block when you want to load data from json files
+    /*
     this.setState({
       CO2Emission: getCO2Emissionsdata(),
       GlobalTemp: getGlobalTempdata().sort((a, b) =>
@@ -57,125 +67,67 @@ export default class AllCharts extends Component {
       GlacierSize: getGlacierSizedata(),
       SeaLevel: getSeaLeveldata()
     });
-
-    console.log(this.state.CO2Emission);
+  */
   }
 
   render() {
     return (
       <React.Fragment>
-        <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-          CO2 Emission (million metric tons)
-        </p>
-        <LineChart
-          width={1400}
-          height={500}
-          data={this.state.CO2Emission}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 50,
-            bottom: 50
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3"></CartesianGrid>
-
-          <XAxis dataKey="Year"></XAxis>
-          <YAxis />
-          <Tooltip />
-          <Legend verticalAlign="top" />
-          <Line
-            type="monotone"
-            dataKey="Total"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
+        <NavBar></NavBar>
+        <Switch>
+          <Route
+            path="/co2/:Year"
+            render={props => (
+              <CO2PieChart {...props} CO2data={this.state.CO2Emission} />
+            )}
           />
-          <Line type="monotone" dataKey="Gas Fuel" stroke="#82ca9d" />
-          <Line type="monotone" dataKey="Liquid Fuel" stroke="orange" />
-          <Line type="monotone" dataKey="Solid Fuel" stroke="blue" />
-          <Line type="monotone" dataKey="Cement" stroke="black" />
-          <Line type="monotone" dataKey="Gas Flaring" stroke="maroon" />
-        </LineChart>
-
-        <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-          Global Temprature
-        </p>
-
-        <LineChart
-          width={1400}
-          height={500}
-          data={this.state.GlobalTemp}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 50,
-            bottom: 50
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="Year" />
-          <YAxis />
-          <Tooltip />
-          <Legend verticalAlign="top" />
-          <Line
-            type="monotone"
-            dataKey="Mean"
-            stroke="#8884d8"
-            activeDot={{ r: 12 }}
+          <Route
+            path="/co2"
+            render={props => (
+              <CO2Emission {...props} CO2data={this.state.CO2Emission} />
+            )}
           />
-        </LineChart>
-
-        <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-          Glaciers Size (meters of water equivalent - Base Year 1945)
-        </p>
-        <LineChart
-          width={1400}
-          height={500}
-          data={this.state.GlacierSize}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 50,
-            bottom: 50
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="Year" />
-          <YAxis />
-          <Tooltip />
-          <Legend verticalAlign="top" />
-          <Line
-            type="monotone"
-            dataKey="Mean cumulative mass balance"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
+          <Route
+            path="/globaltemp"
+            render={props => (
+              <Temperature {...props} Tempdata={this.state.GlobalTemp} />
+            )}
           />
-        </LineChart>
-
-        <p style={{ fontSize: "24px", fontWeight: "bold" }}>Sea Level(in mm)</p>
-        <LineChart
-          width={1400}
-          height={500}
-          data={this.state.SeaLevel}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 50,
-            bottom: 50
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="Time" />
-          <YAxis />
-          <Tooltip />
-          <Legend verticalAlign="top" />
-          <Line
-            type="monotone"
-            dataKey="GMSL"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
+          <Route
+            path="/glaciersize"
+            render={props => (
+              <GlacierSize {...props} Glacierdata={this.state.GlacierSize} />
+            )}
           />
-        </LineChart>
+          <Route
+            path="/sealevel"
+            render={props => (
+              <SeaLevel {...props} SeaLeveldata={this.state.SeaLevel} />
+            )}
+          />
+          <Route
+            path="/co2list"
+            render={props => (
+              <CO2List {...props} CO2data={this.state.CO2Emission} />
+            )}
+          />
+
+          <Route
+            path="/glaciersizesealevel"
+            render={props => (
+              <GlacierSizeSeaLevel
+                {...props}
+                Glacierdata={this.state.GlacierSize}
+                SeaLeveldata={this.state.SeaLevel}
+              />
+            )}
+          />
+
+          <Route path="/notfound" component={NotFound} />
+          <Redirect from="/" exact to="/co2"></Redirect>
+          <Redirect from="/climatechangevisualization" to="/co2"></Redirect>
+          <Redirect to="/notfound"></Redirect>
+        </Switch>
       </React.Fragment>
     );
   }
