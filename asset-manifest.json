@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/climatechangevisualization/static/css/main.5e4e9510.chunk.css",
-    "main.js": "/climatechangevisualization/static/js/main.9c2aabc8.chunk.js",
-    "main.js.map": "/climatechangevisualization/static/js/main.9c2aabc8.chunk.js.map",
-    "runtime-main.js": "/climatechangevisualization/static/js/runtime-main.e94b442e.js",
-    "runtime-main.js.map": "/climatechangevisualization/static/js/runtime-main.e94b442e.js.map",
-    "static/css/2.f65acde2.chunk.css": "/climatechangevisualization/static/css/2.f65acde2.chunk.css",
-    "static/js/2.7cd5aaad.chunk.js": "/climatechangevisualization/static/js/2.7cd5aaad.chunk.js",
-    "static/js/2.7cd5aaad.chunk.js.map": "/climatechangevisualization/static/js/2.7cd5aaad.chunk.js.map",
-    "index.html": "/climatechangevisualization/index.html",
-    "precache-manifest.c5bbfa49857135b7e6418d5c6c06b3a0.js": "/climatechangevisualization/precache-manifest.c5bbfa49857135b7e6418d5c6c06b3a0.js",
-    "service-worker.js": "/climatechangevisualization/service-worker.js",
-    "static/css/2.f65acde2.chunk.css.map": "/climatechangevisualization/static/css/2.f65acde2.chunk.css.map",
-    "static/css/main.5e4e9510.chunk.css.map": "/climatechangevisualization/static/css/main.5e4e9510.chunk.css.map"
+    "main.css": "/climatechangdssdevisualization/static/css/main.5e4e9510.chunk.css",
+    "main.js": "/climatechangdssdevisualization/static/js/main.540a61a0.chunk.js",
+    "main.js.map": "/climatechangdssdevisualization/static/js/main.540a61a0.chunk.js.map",
+    "runtime-main.js": "/climatechangdssdevisualization/static/js/runtime-main.bed44482.js",
+    "runtime-main.js.map": "/climatechangdssdevisualization/static/js/runtime-main.bed44482.js.map",
+    "static/css/2.f65acde2.chunk.css": "/climatechangdssdevisualization/static/css/2.f65acde2.chunk.css",
+    "static/js/2.7cd5aaad.chunk.js": "/climatechangdssdevisualization/static/js/2.7cd5aaad.chunk.js",
+    "static/js/2.7cd5aaad.chunk.js.map": "/climatechangdssdevisualization/static/js/2.7cd5aaad.chunk.js.map",
+    "index.html": "/climatechangdssdevisualization/index.html",
+    "precache-manifest.0ff44b0dbc17c2a83bc053b4fa70f58a.js": "/climatechangdssdevisualization/precache-manifest.0ff44b0dbc17c2a83bc053b4fa70f58a.js",
+    "service-worker.js": "/climatechangdssdevisualization/service-worker.js",
+    "static/css/2.f65acde2.chunk.css.map": "/climatechangdssdevisualization/static/css/2.f65acde2.chunk.css.map",
+    "static/css/main.5e4e9510.chunk.css.map": "/climatechangdssdevisualization/static/css/main.5e4e9510.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.e94b442e.js",
+    "static/js/runtime-main.bed44482.js",
     "static/css/2.f65acde2.chunk.css",
     "static/js/2.7cd5aaad.chunk.js",
     "static/css/main.5e4e9510.chunk.css",
-    "static/js/main.9c2aabc8.chunk.js"
+    "static/js/main.540a61a0.chunk.js"
   ]
 }
