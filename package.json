@@ -1,9 +1,10 @@
 {
-  "homepage": "http://kayvanym.github.io/climatechangevisualization",
+  "homepage": "https://kayvanym.github.io/climatechangevisualization",
   "name": "datavisualization",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "rc-slider": "^8.7.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

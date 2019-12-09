@@ -53,6 +53,11 @@ class NavBar extends Component {
                 Glacier Size/Sea Level
               </Link>
             </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/test1">
+                Test 1
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

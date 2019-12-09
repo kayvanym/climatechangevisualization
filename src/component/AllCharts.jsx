@@ -14,6 +14,7 @@ import CO2PieChart from "./CO2PieChart";
 import NavBar from "./NavBar";
 import NotFound from "./NotFound";
 import GlacierSizeSeaLevel from "./GlacierSizeSeaLevel";
+import Rebecca from "./Rebecca";
 
 import { Route, Redirect, Switch } from "react-router-dom";
 export default class AllCharts2 extends Component {
@@ -122,7 +123,17 @@ export default class AllCharts2 extends Component {
               />
             )}
           />
-
+          <Route
+            path="/test1"
+            render={props => (
+              <Rebecca
+                {...props}
+                data={this.state.SeaLevel}
+                min={1940}
+                max={2014}
+              />
+            )}
+          />
           <Route path="/notfound" component={NotFound} />
           <Redirect from="/" exact to="/co2"></Redirect>
           <Redirect from="/climatechangevisualization" to="/co2"></Redirect>
